@@ -1,0 +1,636 @@
+[
+    {
+        "id": "829619ae982d617d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2e78fba1fea6c5dc",
+        "type": "mqtt in",
+        "z": "829619ae982d617d",
+        "name": "Security",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11749700027f15d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "407ddcd248dd6850"
+            ]
+        ]
+    },
+    {
+        "id": "279ce61d6accbba1",
+        "type": "mqtt in",
+        "z": "829619ae982d617d",
+        "name": "Sanitation",
+        "topic": "kumbh_mela/sanitation",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11749700027f15d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "bc4f0f68f8644bfd"
+            ]
+        ]
+    },
+    {
+        "id": "733bb669596d4023",
+        "type": "mqtt in",
+        "z": "829619ae982d617d",
+        "name": "Healthcare",
+        "topic": "kumbh_mela/healthcare",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11749700027f15d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "4e2ce47b6468856a"
+            ]
+        ]
+    },
+    {
+        "id": "dfa2ff9b52564149",
+        "type": "mqtt out",
+        "z": "829619ae982d617d",
+        "name": "Security(pub)",
+        "topic": "kumbh_mela/security",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11749700027f15d",
+        "x": 410,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9b06ce8c4ff44fdd",
+        "type": "mqtt out",
+        "z": "829619ae982d617d",
+        "name": "Sanitation(pub)",
+        "topic": "kumbh_mela/sanitation",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11749700027f15d",
+        "x": 420,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6be2eb776d5f1e09",
+        "type": "mqtt out",
+        "z": "829619ae982d617d",
+        "name": "Healthcare(pub)",
+        "topic": "kumbh_mela/healthcare",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11749700027f15d",
+        "x": 420,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "5561972446ac1de5",
+        "type": "inject",
+        "z": "829619ae982d617d",
+        "name": "Security Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Stampede risk near VIP area.",
+        "payloadType": "str",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "dfa2ff9b52564149",
+                "1c2c934e7b8ce2ee"
+            ]
+        ]
+    },
+    {
+        "id": "407ddcd248dd6850",
+        "type": "debug",
+        "z": "829619ae982d617d",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e87e0317486a03ea",
+        "type": "inject",
+        "z": "829619ae982d617d",
+        "name": "Healthcare Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "First aid station set up near Gate 3.",
+        "payloadType": "str",
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "6be2eb776d5f1e09"
+            ]
+        ]
+    },
+    {
+        "id": "8849a9d63d5c42ae",
+        "type": "inject",
+        "z": "829619ae982d617d",
+        "name": "Sanitation Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "kumbh_mela/sanitation",
+        "payload": "Toilets sanitized in Sector 5.",
+        "payloadType": "str",
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "9b06ce8c4ff44fdd",
+                "6be2eb776d5f1e09"
+            ]
+        ]
+    },
+    {
+        "id": "bc4f0f68f8644bfd",
+        "type": "debug",
+        "z": "829619ae982d617d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4e2ce47b6468856a",
+        "type": "debug",
+        "z": "829619ae982d617d",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ee851e9d25ab5b03",
+        "type": "mqtt in",
+        "z": "829619ae982d617d",
+        "name": "Transport",
+        "topic": "kumbh_mela/transport",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11749700027f15d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "5e9b85979e30fc92"
+            ]
+        ]
+    },
+    {
+        "id": "406d9b4cab1c146f",
+        "type": "mqtt in",
+        "z": "829619ae982d617d",
+        "name": "Announcements",
+        "topic": "kumbh_mela/announcements",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11749700027f15d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 660,
+        "y": 480,
+        "wires": [
+            [
+                "53fa62e8fd8bab91"
+            ]
+        ]
+    },
+    {
+        "id": "4107019ad716130b",
+        "type": "mqtt in",
+        "z": "829619ae982d617d",
+        "name": "Lost_found",
+        "topic": "kumbh_mela/lost_found",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11749700027f15d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "13e6268ef0b7b49a"
+            ]
+        ]
+    },
+    {
+        "id": "180ce5c749eb08c2",
+        "type": "mqtt out",
+        "z": "829619ae982d617d",
+        "name": "Transport(pub)",
+        "topic": "kumbh_mela/transport",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11749700027f15d",
+        "x": 920,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "54c4095efadfe8ed",
+        "type": "mqtt out",
+        "z": "829619ae982d617d",
+        "name": "Announcements(pub)",
+        "topic": "kumbh_mela/announcements",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11749700027f15d",
+        "x": 940,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "0a2a03c75d3b959f",
+        "type": "mqtt out",
+        "z": "829619ae982d617d",
+        "name": "Lost_found(pub)",
+        "topic": "kumbh_mela/lost_found",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11749700027f15d",
+        "x": 920,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "3091a74a28d5027c",
+        "type": "inject",
+        "z": "829619ae982d617d",
+        "name": "Transport Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Bus service from Sector 1 to Main Entrance delayed.",
+        "payloadType": "str",
+        "x": 660,
+        "y": 400,
+        "wires": [
+            [
+                "180ce5c749eb08c2",
+                "1c2c934e7b8ce2ee"
+            ]
+        ]
+    },
+    {
+        "id": "814e18b6e16d99a0",
+        "type": "inject",
+        "z": "829619ae982d617d",
+        "name": "Announcements Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Please avoid pushing and follow the queue.",
+        "payloadType": "str",
+        "x": 640,
+        "y": 540,
+        "wires": [
+            [
+                "54c4095efadfe8ed",
+                "1c2c934e7b8ce2ee"
+            ]
+        ]
+    },
+    {
+        "id": "d6f062758e940431",
+        "type": "inject",
+        "z": "829619ae982d617d",
+        "name": "Lost_Found Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Missing: 8-year-old boy, wearing a red shirt.",
+        "payloadType": "str",
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "0a2a03c75d3b959f",
+                "1c2c934e7b8ce2ee"
+            ]
+        ]
+    },
+    {
+        "id": "13e6268ef0b7b49a",
+        "type": "debug",
+        "z": "829619ae982d617d",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5e9b85979e30fc92",
+        "type": "debug",
+        "z": "829619ae982d617d",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "53fa62e8fd8bab91",
+        "type": "debug",
+        "z": "829619ae982d617d",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "fd3fd4a6fec04bd7",
+        "type": "mqtt in",
+        "z": "829619ae982d617d",
+        "name": "Management",
+        "topic": "kumbh_mela/management",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11749700027f15d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 670,
+        "y": 80,
+        "wires": [
+            [
+                "164b7249cff97de7"
+            ]
+        ]
+    },
+    {
+        "id": "164b7249cff97de7",
+        "type": "debug",
+        "z": "829619ae982d617d",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1c2c934e7b8ce2ee",
+        "type": "mqtt out",
+        "z": "829619ae982d617d",
+        "name": "Management(pub)",
+        "topic": "kumbh_mela/management",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11749700027f15d",
+        "x": 930,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "47fd9b07369d9f74",
+        "type": "inject",
+        "z": "829619ae982d617d",
+        "name": "Management Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10 volunteers needed for crowd control at Gate 5.",
+        "payloadType": "str",
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "1c2c934e7b8ce2ee"
+            ]
+        ]
+    },
+    {
+        "id": "f11749700027f15d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
